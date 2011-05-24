@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  points: 1
+  rules: MyText
+  dog: 
+
+two:
+  name: MyString
+  points: 1
+  rules: MyText
+  dog: 

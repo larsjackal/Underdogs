@@ -1,0 +1,27 @@
+<h1>Listing forces</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Player</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forces.each do |force| %>
+  <tr>
+    <td><%= force.name %></td>
+    <td><%= force.race %></td>
+    <td><%= force.player %></td>
+    <td><%= link_to 'Show', force %></td>
+    <td><%= link_to 'Edit', edit_force_path(force) %></td>
+    <td><%= link_to 'Destroy', force, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Force', new_force_path %>

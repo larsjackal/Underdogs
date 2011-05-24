@@ -1,0 +1,4 @@
+class Dog < ActiveRecord::Base
+  belongs_to :force
+  has_many :items, :powers, :wounds
+end

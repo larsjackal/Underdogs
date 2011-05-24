@@ -1,0 +1,71 @@
+<h1>Listing dogs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Unit</th>
+    <th>Rank</th>
+    <th>Ws</th>
+    <th>Bs</th>
+    <th>S</th>
+    <th>T</th>
+    <th>W</th>
+    <th>I</th>
+    <th>A</th>
+    <th>Ld</th>
+    <th>Sv</th>
+    <th>Newpoints</th>
+    <th>Usedpoints</th>
+    <th>Ows</th>
+    <th>Obs</th>
+    <th>Os</th>
+    <th>Ot</th>
+    <th>Ow</th>
+    <th>Oi</th>
+    <th>Oa</th>
+    <th>Old</th>
+    <th>Modelcost</th>
+    <th>Background</th>
+    <th>Force</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dogs.each do |dog| %>
+  <tr>
+    <td><%= dog.name %></td>
+    <td><%= dog.unit %></td>
+    <td><%= dog.rank %></td>
+    <td><%= dog.WS %></td>
+    <td><%= dog.BS %></td>
+    <td><%= dog.S %></td>
+    <td><%= dog.T %></td>
+    <td><%= dog.W %></td>
+    <td><%= dog.I %></td>
+    <td><%= dog.A %></td>
+    <td><%= dog.Ld %></td>
+    <td><%= dog.Sv %></td>
+    <td><%= dog.newpoints %></td>
+    <td><%= dog.usedpoints %></td>
+    <td><%= dog.oWS %></td>
+    <td><%= dog.oBS %></td>
+    <td><%= dog.oS %></td>
+    <td><%= dog.oT %></td>
+    <td><%= dog.oW %></td>
+    <td><%= dog.oI %></td>
+    <td><%= dog.oA %></td>
+    <td><%= dog.oLd %></td>
+    <td><%= dog.modelcost %></td>
+    <td><%= dog.background %></td>
+    <td><%= dog.force %></td>
+    <td><%= link_to 'Show', dog %></td>
+    <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
+    <td><%= link_to 'Destroy', dog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dog', new_dog_path %>

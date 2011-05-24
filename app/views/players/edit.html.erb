@@ -1,0 +1,35 @@
+<h1>Editing player</h1>
+
+<%= render 'form' %>
+
+<h2>List of Armies</h2>
+<% @player.forces.each do |force| %>
+  <p>
+    <b>Name:</b>
+    <%= force.name %>
+  </p>
+ 
+  <p>
+    <b>Type:</b>
+    <%= force.race %>
+  </p>
+<%= link_to 'Show', force_path(force) %>
+<% end %>
+ 
+<h2>Add an Army:</h2>
+<%= form_for([@player, @player.forces.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_area :race %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @player %> |
+<%= link_to 'Back', players_path %>

@@ -1,0 +1,29 @@
+<h1>Editing force</h1>
+
+<%= render 'form' %>
+
+<h2>List of Heroes</h2>
+<% @force.dogs.each do |dog| %>
+  <p>
+    <b>Name:</b>
+    <%= link_to dog.name, dog_path(dog) %>
+  </p>
+<% end %>
+ 
+<h2>Add a Hero:</h2>
+<%= form_for([@force, @force.dogs.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :backstory %><br />
+    <%= f.text_area :background %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @force %> |
+<%= link_to 'Back', forces_path %>

@@ -1,0 +1,113 @@
+<%= form_for(@dog) do |f| %>
+  <% if @dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+
+      <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.text_field :rank %>
+  </div>
+  <div class="field">
+    <%= f.label :WS %><br />
+    <%= f.text_field :WS %>
+  </div>
+  <div class="field">
+    <%= f.label :BS %><br />
+    <%= f.text_field :BS %>
+  </div>
+  <div class="field">
+    <%= f.label :S %><br />
+    <%= f.text_field :S %>
+  </div>
+  <div class="field">
+    <%= f.label :T %><br />
+    <%= f.text_field :T %>
+  </div>
+  <div class="field">
+    <%= f.label :W %><br />
+    <%= f.text_field :W %>
+  </div>
+  <div class="field">
+    <%= f.label :I %><br />
+    <%= f.text_field :I %>
+  </div>
+  <div class="field">
+    <%= f.label :A %><br />
+    <%= f.text_field :A %>
+  </div>
+  <div class="field">
+    <%= f.label :Ld %><br />
+    <%= f.text_field :Ld %>
+  </div>
+  <div class="field">
+    <%= f.label :Sv %><br />
+    <%= f.text_field :Sv %>
+  </div>
+  <div class="field">
+    <%= f.label :newpoints %><br />
+    <%= f.text_field :newpoints %>
+  </div>
+  <div class="field">
+    <%= f.label :usedpoints %><br />
+    <%= f.text_field :usedpoints %>
+  </div>
+  <div class="field">
+    <%= f.label :oWS %><br />
+    <%= f.text_field :oWS %>
+  </div>
+  <div class="field">
+    <%= f.label :oBS %><br />
+    <%= f.text_field :oBS %>
+  </div>
+  <div class="field">
+    <%= f.label :oS %><br />
+    <%= f.text_field :oS %>
+  </div>
+  <div class="field">
+    <%= f.label :oT %><br />
+    <%= f.text_field :oT %>
+  </div>
+  <div class="field">
+    <%= f.label :oW %><br />
+    <%= f.text_field :oW %>
+  </div>
+  <div class="field">
+    <%= f.label :oI %><br />
+    <%= f.text_field :oI %>
+  </div>
+  <div class="field">
+    <%= f.label :oA %><br />
+    <%= f.text_field :oA %>
+  </div>
+  <div class="field">
+    <%= f.label :oLd %><br />
+    <%= f.text_field :oLd %>
+  </div>
+  <div class="field">
+    <%= f.label :modelcost %><br />
+    <%= f.text_field :modelcost %>
+  </div>
+  <div class="field">
+    <%= f.label :background %><br />
+    <%= f.text_area :background %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @player.name %>
+</p>
+
+<h2>List of Armies</h2>
+<% @player.forces.each do |force| %>
+  <p>
+    <b>Name:</b>
+    <%= link_to force.name, force_path(force) %>
+  </p>
+ 
+  <p>
+    <b>Type:</b>
+    <%= force.race %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

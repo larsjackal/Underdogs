@@ -1,0 +1,2 @@
+module WoundsHelper
+end

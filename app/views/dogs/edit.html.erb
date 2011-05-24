@@ -1,0 +1,134 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="http://www.lars-san.com/war40k/underdogs/war-under.css" />
+
+	<script language='JavaScript'>
+	Current = "0";
+	WSlevel = <%= @dog.WS %>;
+	function display()
+	  {
+	  document.testing.Display.value = Current;
+	  }
+	function Increase(stat)
+	  {
+	  WSlevel++;
+	  document.getElementById('hero-'+stat).innerHTML = WSlevel;
+	  }
+	function sayHello()
+	  {
+	  document.getElementById('hello').innerHTML = Current;//This is a check to make sure basic Javasscript is working on the page. It will be removed when the page goes live.
+	  Current = document.getElementById('hero-name').innerHTML;
+	  WSlevel = document.getElementById('hero-WS').innerHTML;
+	  }
+	window.onload = sayHello;
+	</script>
+</head>
+<p id="notice"><%= notice %></p>
+<h1>Editting <%= @dog.name %></h1>
+<p id="hello"></p><!-- This is a check to make sure basic Javasscript is working on the page. It will be removed when the page goes live. -->
+
+<div id="content">
+<!-- This section is not needed when only listing a single hero.
+<div id="section">
+	<h2><u><b>Units</b></u></h2>
+</div>
+-->
+<!-- This section is not needed when only listing a single hero. It will be used when listing many from different armies as the seperator between the armies, labeling them.
+<div id="name">
+	<a name="hq"></a>
+	<h2>HQ</h2>
+</div>
+-->
+<div id="rulesbox">
+	<div id="name">
+		<a name="archon"></a>
+		<font size="+2"><%= @dog.name %></font>
+	</div>
+	<div id="points">
+		<font size="-1">Total: Javascript goes here New: <%= @dog.newpoints %> Used: <%= @dog.usedpoints %></font>
+	</div>
+	<div id="rulesbox-left">
+		<div id="rulesbox-stats">
+			<table><tr><td width="150"></td><td width="25"><center><b>WS</b></center></td><td width="25"><center><b>BS</b></center></td><td width="25"><center><b>S</b></center></td><td width="25"><center><b>T</b></center></td><td width="25"><center><b>W</b></center></td><td width="25"><center><b>I</b></center></td><td width="25"><center><b>A</b></center></td><td width="25"><center><b>Ld</b></center></td><td width="25"><center><b>Sv</b></center></td></tr>
+				<tr><td><%= @dog.name %></td><!-- Name -->
+				<td><center><%= @dog.WS %></center></td><!-- WS -->
+				<td><center><%= @dog.BS %></center></td><!-- BS -->
+				<td><center><%= @dog.S %></center></td><!-- S -->
+				<td><center><%= @dog.T %></center></td><!-- T -->
+				<td><center><%= @dog.W %></center></td><!-- W -->
+				<td><center><%= @dog.I %></center></td><!-- I -->
+				<td><center><%= @dog.A %></center></td><!-- A -->
+				<td><center><%= @dog.Ld %></center></td><!-- Ld -->
+				<td><center><%= @dog.Sv %><font size="-2">+</font></center></td><!-- Sv -->
+			</tr>
+			<tr>
+				<td><span align="center">Increase</span></td>
+			</tr></table>
+		</div>
+		<div id="rulesbox-leftleft">
+			<div id="rulesbox-float">
+				<b>Unit Type:</b><br />
+				&bull; Infantry
+			</div>
+			<div id="rulesbox-float">
+				<b>Unit/squad:</b><br />
+				&bull; <%= @dog.unit %>
+			</div>
+			<div id="rulesbox-float">
+				<b>Wargear:</b><br />
+				<% @dog.items.each do |item| %>
+				&bull; <%= item.name %> <font color="grey" size="-1"><% if item.points != 0 %><%= item.points %> points<% end %></font><!-- The ruby code inside the font tag will make any point value other than '0' be displayed. -->
+				<%= link_to 'X', dog_item_path(@dog, item), :confirm => 'Are you sure?', :method => :delete %><br />
+				<% end %>
+				Add Wargear:<br />
+				<%= form_for([@dog, @dog.items.build]) do |f| %>
+					<%= f.text_field :name %>
+					<%= f.label :points %><br />
+					<%= f.text_field :points %>
+					<%= f.submit %>
+				<% end %>
+			</div>
+		</div>
+		<div id="rulesbox-leftright">
+			<div id="rulesbox-float">
+				<b>Special Rules:</b><br />
+				<% @dog.powers.each do |power| %>
+				&bull; <%= power.name %> <%= link_to 'X', dog_power_path(@dog, power), :confirm => 'Are you sure?', :method => :delete %><br />
+				<% end %>
+				Add Ability:<br />
+				<%= form_for([@dog, @dog.powers.build]) do |f| %>
+					<%= f.text_field :name %>
+					<%= f.submit %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div id="rulesbox-right">
+		<b>Background:</b><br />
+		<%= @dog.background %><br /><br />
+		<% if @dog.wounds.count != 0 %>
+			<b>Injuries:</b><br />
+			<% @dog.wounds.each do |wound| %>
+			&bull; <%= wound.created_at %> <%= wound.details %><br />
+			<% end %>
+		<% end %>
+		<% if @dog.wounds.empty? %>
+			<b>No Injuries</b><br />
+		<% end %>
+		Add Injury:<br />
+		<%= form_for([@dog, @dog.wounds.build]) do |f| %>
+			<%= f.text_area :details %>
+			<%= f.submit %>
+		<% end %>
+		<%= link_to 'Show', dog_path(@dog) %><br />
+		<%= link_to 'Destroy', @dog, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+</div>
+
+<div id="section">
+--Old section--<br />
+<%= render 'form' %>
+
+<%= link_to 'Show', @dog %> |
+<%= link_to 'Back', dogs_path %>
+</div>
+</div>

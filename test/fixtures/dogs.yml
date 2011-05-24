@@ -1,0 +1,55 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  unit: MyString
+  rank: MyString
+  WS: 1
+  BS: 1
+  S: 1
+  T: 1
+  W: 1
+  I: 1
+  A: 1
+  Ld: 1
+  Sv: 1
+  newpoints: 1
+  usedpoints: 1
+  oWS: 1
+  oBS: 1
+  oS: 1
+  oT: 1
+  oW: 1
+  oI: 1
+  oA: 1
+  oLd: 1
+  modelcost: 1
+  background: MyText
+  force: 
+
+two:
+  name: MyString
+  unit: MyString
+  rank: MyString
+  WS: 1
+  BS: 1
+  S: 1
+  T: 1
+  W: 1
+  I: 1
+  A: 1
+  Ld: 1
+  Sv: 1
+  newpoints: 1
+  usedpoints: 1
+  oWS: 1
+  oBS: 1
+  oS: 1
+  oT: 1
+  oW: 1
+  oI: 1
+  oA: 1
+  oLd: 1
+  modelcost: 1
+  background: MyText
+  force: 

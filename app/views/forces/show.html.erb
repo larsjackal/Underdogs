@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @force.name %>
+</p>
+
+<p>
+  <b>Race:</b>
+  <%= @force.race %>
+</p>
+
+<h2>List of Heroes</h2>
+<% @force.dogs.each do |dog| %>
+  <p>
+    <b>Name:</b>
+    <%= link_to dog.name, dog_path(dog) %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_force_path(@force) %> |
+<%= link_to 'Back', forces_path %>
